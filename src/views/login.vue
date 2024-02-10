@@ -1,5 +1,5 @@
 <template>
-    <div class=" bg-[url('../assets/images/login-bg.png')] h-screen bg-cover relative">
+    <div class=" bg-[url('../assets/images/login-bg.png')] h-screen bg-cover relative ">
 
       <form class="bg-white mx-auto w-[371px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pt-20 pb-16">
         <HLogo class="mx-auto"/>

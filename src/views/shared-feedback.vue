@@ -13,10 +13,10 @@
        </div>
   </div>
   <div v-if = "users.length">
-    <div class= "border max-w-4xl mx-auto px-6 mt-8" >
+    <div class= "border max-w-4xl mx-auto px-6 " >
     <div 
     v-for="(user,index) in users" 
-    :key='user.uuid'
+    :key='user.index'
     class = "flex justify-between items-center py-3 hover:bg-[#59636e1a] cursor-pointer"
     :class="{ 'border-t border-[#D9DCDE]': index !== 0 }"
     >
@@ -29,7 +29,7 @@
   </div>
 </div>
 <button class="border border-[rgb(172,177,182)] font-semibold rounded hover:bg-[#D9DCDE] w-[198px] h-[48px] focus:text-white focus:bg-[#AB61E5] focus:border-none" 
-@click = 'handleDetails(index)'>
+@click = 'handleDetails(user)'>
 {{!user.isFilledOut? "Filled Out": "View Submission"}}</button>
 
   </div>
@@ -41,7 +41,8 @@
 
 <script setup>
 import axios from 'axios';
-import {onMounted, ref} from 'vue'
+import {onMounted, ref} from 'vue';
+import router from '@/router';
 const users = ref([]);
 const fetchRandomUsers =async ()=>{
 try{
@@ -55,10 +56,17 @@ throw new Error(error)
 onMounted(()=>{
   fetchRandomUsers()
 })
-const handleDetails = (index) => {
-  const updatedUser = { ...users.value[index], isFilledOut: !users.value[index].isFilledOut };
-  users.value.splice(index, 1, updatedUser);
-};
+const handleDetails = (user) => {
+  // const updatedUser = { ...users.value[index], isFilledOut: !users.value[index].isFilledOut };
+  // users.value.splice(index, 1, updatedUser);
+  router.push(`/shared-feedback/${user.login.uuid}`)}
+  
+  //you can also use this
+  //router.push({
+//name:"user-feedback",
+//params:{id:user.login.uuid}
+//   })
+// };
 </script>
 
 <style>

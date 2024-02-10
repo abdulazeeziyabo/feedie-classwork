@@ -1,20 +1,5 @@
 <template>
-    <div class="bg-[#F2F3F4] h-[75px] flex justify-between items-center px-9"> 
-        
- <div class="flex gap-24 h-full items-center ">
-    <div class="text-2xl font-semibold">Honesto</div>
-<div class="flex gap-24 items-center h-full text-base ">
-    <routerLink to = '/shared-feedback' class="h-full flex items-center border-b-[3px] border-[#f2f3f4]"> 
-<div class="relative">Shared Feedback </div>
-<div class="absolute bg-[#ab61e5] rounded-full h-5 w-5 text-[11px] text-center top-1 left-[360px] text-white font-semibold flex justify-center text-l items-center">1</div>
-</routerLink>
-<routerLink to = '/my-feedback' class="h-full flex items-center border-b-[3px] border-[#f2f3f4]">My Feedback</routerLink>
-<routerLink to = '/team-feedback' class="h-full flex items-center border-b-[3px] border-[#f2f3f4]">Team Feedback</routerLink></div>
- </div>
-
-<div class="flex gap-1 items-center border-l border-[#D9DCDE] h-full pl-4">
-    <span class="rounded-full px-3 py-3">
-        <svg
+     <svg
           width="58"
           height="58"
           viewBox="0 0 58 58"
@@ -43,15 +28,6 @@
             />
           </defs>
         </svg>
-    </span>
-    <div class="flex  flex-col items-center">
-    
-    <div class= "">Jane Smith</div>
-    <button class=" text-xs font-bold text-[#59636e] uppercase">logout</button>
-</div>
-</div>
-        </div>
-    
 </template>
 
 <script>
@@ -61,7 +37,5 @@
 </script>
 
 <style scoped>
-a.router-link-exact-active{
-    border-bottom: 3px solid #ab61e5;
-}
+
 </style>
