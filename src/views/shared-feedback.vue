@@ -39,24 +39,27 @@
   <div v-else class="text-center mt-6 font-semibold">Fetching data....</div>
 </template>
 
-<script setup>
-import axios from 'axios';
+<script setup lang="ts">
 import {onMounted, ref} from 'vue';
 import router from '@/router';
-const users = ref([]);
-const fetchRandomUsers =async ()=>{
+import { getRandomUsers, type IRandomUser } from '@/services'
+
+let users = ref([]);
+
+async function fetchRandomUser(){
 try{
-const {data}= await axios.get('https://randomuser.me/api/?results=10');
-users.value = data.results
-console.log(users)
-}catch(error){
-throw new Error(error)
+  const response = await getRandomUsers()
+
+users.value = response.data.results
 }
+catch(error){
+  console.log(error)}
 }
-onMounted(()=>{
-  fetchRandomUsers()
+
+ onMounted(()=>{
+ fetchRandomUser();
 })
-const handleDetails = (user) => {
+const handleDetails = (user:IRandomUser) => {
   // const updatedUser = { ...users.value[index], isFilledOut: !users.value[index].isFilledOut };
   // users.value.splice(index, 1, updatedUser);
   router.push(`/shared-feedback/${user.login.uuid}`)}

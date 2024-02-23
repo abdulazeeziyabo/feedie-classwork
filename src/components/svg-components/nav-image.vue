@@ -1,5 +1,6 @@
 <template>
-     <svg
+  <div>
+  <svg
           width="58"
           height="58"
           viewBox="0 0 58 58"
@@ -28,14 +29,13 @@
             />
           </defs>
         </svg>
+      </div>
 </template>
 
-<script>
-    export default {
-        
-    }
+<script setup>
+
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 </style>
